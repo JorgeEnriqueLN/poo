@@ -6,7 +6,7 @@ class TarjetaSube:
         self.__saldo = sal
         self.__numero = nro
 
-    def getSaldo(self):
+    def getSaldo(self): #este metodo devuelve el saldo de la tarjeta. En la clase se llamo consultar_saldo (self)
         return self.__saldo
 
     def getNumero(self):
@@ -26,7 +26,5 @@ class TarjetaSube:
         self.__saldo += importe
         return (self.__saldo)   
     
-    def Consultar_saldo (self, num):
-        if self.__numero == num:
-            return (self.__saldo)
+   
     
