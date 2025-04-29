@@ -28,6 +28,3 @@ class TarjetaSube:
         if (importe>0):
             self.__saldo += importe
         return (self.__saldo)   
-    
-   
-    
