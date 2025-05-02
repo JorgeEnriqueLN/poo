@@ -2,9 +2,9 @@ class TarjetaSube:
     __saldo = int
     __numero = int
 
-    def __init__(self, sal, nro):
-        self.__saldo = sal
-        self.__numero = nro
+    def __init__(self, saldo, numero):
+        self.__saldo = saldo
+        self.__numero = numero
 
     def getSaldo(self): #este metodo devuelve el saldo de la tarjeta. En la clase se  llamo consultar_saldo (self)
         return self.__saldo

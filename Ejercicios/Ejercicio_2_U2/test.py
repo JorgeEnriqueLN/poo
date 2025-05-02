@@ -4,14 +4,19 @@ from controlador import Controlador
 def test():
     lista=Controlador()
 
-    for i in range(1):
+    for i in range(2):
         saldo= int(input("Ingrese el saldo de la tarjeta: "))
         numero= int(input("Ingrese el numero de la tarjeta: "))
 
         tarjeta= TarjetaSube(saldo, numero)
         #print(tarjeta)
         lista.agregar_tarjetas(tarjeta)
-        lista.mostrar_tarjetas()
+
+    lista.mostrar_tarjetas()
+
+    numtarjeta=int(input("Ingrese numero de tarjeta a buscar "))
+   
+    lista.buscar_tarjeta(numtarjeta)   
 
 
 
