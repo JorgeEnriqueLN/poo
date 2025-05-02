@@ -22,7 +22,7 @@ if __name__=='__main__':
     mc.cargarCarrera()
     mf.cargarFacultad()
  
-
+    # este metodo ordena el arreglo alfabeticamente. esta asociado al método __lt__ declarado en la clase Carrera
     mc.ordenar()
 
     opcion=menu()
