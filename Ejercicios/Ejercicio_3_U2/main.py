@@ -41,9 +41,14 @@ if __name__=='__main__':
             m=int(input("Ingrese mes"))
             can=acc.getCantidadDeAccidentes(d,m)
             print(f"La cant es:   {can}")
+            print(f"DEPARTAMENTO: {md.GetNombreEnListaDepartamentos(d-1)}")
 
             print('Operacion 3 Exitosa')
         elif opcion==4:
+            mes=int(input("Ingrese mes a buscar"))
+                   
+            for i in range (19):
+                print(f"Departamento: {md.GetNombreEnListaDepartamentos(i)} cantidad: {acc.busquedaPorMes(i,mes-1)}")
             print('Operacion 4 Exitosa')
         elif opcion==5:
             print('Operacion 5 Exitosa')

@@ -8,11 +8,13 @@ class Departamento:
 
     def getNombre(self):
         return self.__nombre
+    
     def setNombre(self, otroNombre):
         return self.__nombre==otroNombre
     
     def getNumero(self):
         return self.__numero
+    
     def setNumero(self, otroNro):
         return self.__nombre==otroNro
     

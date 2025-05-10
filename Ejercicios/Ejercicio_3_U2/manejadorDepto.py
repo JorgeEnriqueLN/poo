@@ -25,4 +25,8 @@ class ManejadorD:
         
     def GetNombreEnListaDepartamentos(self, id):
         return self.__deptos[id].getNombre()
+    
+    def listarNombres(self):
+        for i in range (len(self.__deptos)):
+            return self.__deptos[i].getNombre()
    

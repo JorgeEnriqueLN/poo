@@ -13,3 +13,11 @@ class Accidente():
   
     def getCantidadDeAccidentes(self, id, mes):
         return self.__tabla[id-1][mes-1]
+    
+    
+    def busquedaPorMes(self, id, mes):
+        #for i in range (len(self.__tabla)):
+            #print(f"Departamento: --- y la cantidad es: {self.__tabla[i][mes-1]}")
+        cant=self.__tabla[id][mes]
+        
+        return cant
