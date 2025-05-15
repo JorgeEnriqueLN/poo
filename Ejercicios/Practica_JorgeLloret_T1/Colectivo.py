@@ -17,7 +17,7 @@ class Colectivo():
         self.__combustible=combustible
 
     def __str__(self):        
-        return f'Patente: {self.__patente} Marca: {self.__marca} Modelo: {self.__modelo} Capacidad: {self.__capacidad} Dni Chofer: {self.__dni} Combustible: {self.__combustible}'
+        return f'PATENTE: {self.__patente} MARCA: {self.__marca} MODELO: {self.__modelo} CAPACIDAD: {self.__capacidad} DNI CHOFER: {self.__dni} COMBUSTIBLE: {self.__combustible}'
     
     def getCombustible(self):
         return self.__combustible

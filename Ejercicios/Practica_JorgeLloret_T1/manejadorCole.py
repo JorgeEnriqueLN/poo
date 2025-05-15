@@ -23,28 +23,26 @@ class ManejadorCole:
         self.__arreC[self.__cantidad]=unColectivo
         self.__cantidad += 1
 
-    def getunColectivo(self, indice):
-        return self.__arreC[indice]
     
-    def mostrar(self):
-        for i in range(self.__cantidad):
-            print(self.__arreC[i])
-
-
     def cargarColectivo(self):
         with open(r'/home/jorge/Escritorio/POO/Ejercicios/Practica_JorgeLloret_T1/colectivos.csv', encoding='utf-8') as archivoColectivo:
             reader = csv.reader(archivoColectivo, delimiter=';')
             next(reader)  # salta la primera línea (encabezado)
 
             for fila in reader:
-                #unColectivo = Colectivo(fila[0], fila[1], int(fila[2]),int(fila[3]), int(fila[4]), int(fila[5]))
                 unColectivo = Colectivo(fila[0], fila[1], int(fila[2]),int(fila[3]), int(fila[4]))
                 self.agregarColectivo(unColectivo)
 
+    def getunColectivo(self, indice):
+        return self.__arreC[indice-1]
+    
+    def mostrar(self):
+        for i in range(self.__cantidad):
+            print(self.__arreC[i])
 
     def buscarChofer(self, chofer):
         i=0
-        cho=-1
+        patente=-1
         encontrado =False
 
         while (i<self.__cantidad and not encontrado):

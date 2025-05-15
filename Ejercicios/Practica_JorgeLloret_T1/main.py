@@ -44,6 +44,8 @@ if __name__=='__main__':
             
             print('Operacion 3 Exitosa')
         elif opcion==4:
+            cole=int(input("Ingrese numero de colectivo: "))
+            print(f'Colectivo datos {mc.getunColectivo(cole)}')
             print('Operacion 4 Exitosa')
         elif opcion==5:
             print('Operacion 5 Exitosa')
