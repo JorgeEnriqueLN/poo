@@ -8,8 +8,8 @@ class ManejadorTramo:
     def __init__(self):
         self.__tramo=[]
 
-    def agregarTramo(self, depto):
-        self.__tramo.append(depto)
+    def agregarTramo(self, tr):
+        self.__tramo.append(tr)
 
     def cargarTramo(self):
         with open(r'/home/jorge/Escritorio/POO/Ejercicios/Practica_JorgeLloret_T1/tramos.csv', encoding='utf8') as archivo:
