@@ -27,5 +27,8 @@ class Tramo():
         return self.__origen==origen
     def setDestino(self,destino:str):
         return self.__destino==destino
+    
+    def __gt__(self, otro):
+        return int(self.__distancia) > otro
 
     

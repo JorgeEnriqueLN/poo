@@ -32,6 +32,7 @@ class Colectivo():
     def getDni(self):
         return self.__dni
     
+    
   
 
 

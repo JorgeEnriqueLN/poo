@@ -12,7 +12,7 @@ class ManejadorTramo:
         self.__tramo.append(tr)
 
     def cargarTramo(self):
-        with open(r'/home/jorge/Escritorio/POO/Ejercicios/Practica_JorgeLloret_T1/tramos.csv', encoding='utf8') as archivo:
+        with open(r'C:\\Users\\novo2\\OneDrive\\Escritorio\\lcc\2-Segundo\\Poo\\U_2\\poo\\Ejercicios\\Practica_JorgeLloret_T1\\tramos.csv', encoding='utf8') as archivo:
             reader=csv.reader(archivo, delimiter=';')
             next (reader)
             for fila in reader:
@@ -26,14 +26,16 @@ class ManejadorTramo:
     
 
     def mostrarTramos(self, patente):
-        
+        suma=0
         for i in range(len(self.__tramo)):
             if (patente==self.__tramo[i].getPatente()):
                 print(f"Patente: {self.__tramo[i].getPatente()}")
                 print(f"Desde: {self.__tramo[i].getOrigen()}")
                 print(f"Hasta: {self.__tramo[i].getDestino()}")
                 print(f"Distancia: {self.__tramo[i].getDistancia()}")
-         
+                suma+=self.__tramo[i].getDistancia()
+        return print(f'Cantidad total de km: {suma} ')
+        
 
     def buscarTramo(self, pat):
         i=0
@@ -59,3 +61,20 @@ class ManejadorTramo:
         #     print(f"Distancia: {self.__tramo[i].getDistancia()}")
         # print("------------------------------------------------")
             print(i)
+
+    def mostrarDatos(self, patente, combustible):
+        promedio=0
+        km=0
+        for i in range(len(self.__tramo)):
+            
+            if (self.__tramo[i].getPatente()==patente):
+                
+                km += int(self.__tramo[i].getDistancia())
+
+        promedio = int(km*combustible/100)
+        print (f"Patente del colectivo: {patente} - kilometros recorridos {km} - El combustible promedio: {promedio}")
+
+    def listarDistancia(self, distancia):
+        for i in self.__tramo:
+            if i > distancia :
+                print(f"Origen: {i.getOrigen()} km: {i.getDistancia()}")
