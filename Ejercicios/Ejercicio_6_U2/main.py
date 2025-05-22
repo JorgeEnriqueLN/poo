@@ -20,6 +20,9 @@ if __name__=='__main__':
     
     mP=ManejadorPaciente()
     mA=ManejadorAtencion()
+    mP.cargarPacientes()
+    mA.cargarAtencion()
+
  
     opcion=menu()
     while opcion!=0:
@@ -34,11 +37,15 @@ if __name__=='__main__':
             print('Operacion 2 Exitosa')
 
         elif opcion==3:
-            
+            dni=int(input("Ingrese dni del paciente: "))
+            mP.buscarPaciente(dni) 
+            mA.buscarAtencion(dni)
+             
             
             print('Operacion 3 Exitosa')
         elif opcion==4:
-            
+            mA.buscarPorDni(mP)
+
             print('Operacion 4 Exitosa')
         elif opcion==5:
             

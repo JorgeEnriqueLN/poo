@@ -11,7 +11,7 @@ class ManejadorAtencion:
 
       
     def __init__(self, dimension=50, incremento=1):
-        self.__arreC= np.empty (dimension, dtype=Atencion)
+        self.__arreA= np.empty (dimension, dtype=Atencion)
         self.__cantidad = 0
         self.__dimension = dimension
 
@@ -28,12 +28,13 @@ class ManejadorAtencion:
             reader = csv.reader(archivoAtencion, delimiter=';')
             next(reader)
             for fila in reader:
-                dni = int(fila[0])
-                fecha = datetime.strptime(fila[1], '%d/%m/%Y').date()
-                nombre = fila[2]
+                unaAtencion = Atencion(int(fila[0]), fila[1], float(fila[2]))
+                # dni = int(fila[0])
+                # fecha = datetime.strptime(fila[1], '%d/%m/%Y').date()
+                # nombre = fila[2]
                 
-                atencion = Atencion(dni, fecha, nombre)
-                self.agregarAtencion(atencion)
+                # atencion = Atencion(dni, fecha, nombre)
+                self.agregarAtencion(unaAtencion)
 
 
     def atencionesRealizadas(self, fecha:datetime):
@@ -50,5 +51,22 @@ class ManejadorAtencion:
         for i in range(self.__cantidad):
             print(self.__arreA[i])
 
-   
+
+    def buscarAtencion(self, dni):
+        cant=0
+        for i in range(self.__cantidad):
+            if self.__arreA[i].getDni() == dni:
+                cant+=1
         
+        print(f"El paciente {dni} tiene {cant} atenciones")
+   
+    def buscarPorDni(self, mP):
+        encontrado = False
+        for j in mP.__listaP:
+            for i in range(self.__cantidad):
+                if self.__arreA[i].getDni() == j.getDni():
+                    encontrado = True
+
+        if not encontrado:
+            print(f"No se encontraron atenciones para el paciente {j.getNombre()} con dni {j.getDni()}")
+           
