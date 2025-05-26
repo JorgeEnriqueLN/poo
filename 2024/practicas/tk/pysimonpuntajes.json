@@ -1,0 +1,37 @@
+[
+    {
+        "nombre": "sdbs",
+        "puntaje": 1,
+        "fecha": "2024-06-23",
+        "hora": "16:53:38",
+        "nivel": "Principiante"
+    },
+    {
+        "nombre": "asd",
+        "puntaje": 1,
+        "fecha": "2024-06-23",
+        "hora": "17:02:47",
+        "nivel": "Principiante"
+    },
+    {
+        "nombre": "safagewgw",
+        "puntaje": 1,
+        "fecha": "2024-06-23",
+        "hora": "17:06:05",
+        "nivel": "Principiante"
+    },
+    {
+        "nombre": "lokjl",
+        "puntaje": 5,
+        "fecha": "2024-06-23",
+        "hora": "17:16:51",
+        "nivel": "Principiante"
+    },
+    {
+        "nombre": "poiupoi",
+        "puntaje": 3,
+        "fecha": "2024-06-23",
+        "hora": "17:17:38",
+        "nivel": "Principiante"
+    }
+]

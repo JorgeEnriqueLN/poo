@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar salida de transporte</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='salida_transporte.css') }}">
+
+</head>
+<body>
+    <h1>Seleccionar Sucursal Destino</h1>
+    <form method="post">
+        <label for="sucursal_destino">Seleccionar Sucursal Destino:</label>
+        <select name="sucursal_destino" id="sucursal_destino">
+            {% for sucursal in sucursales %}
+                <option value="{{ sucursal.id }}">{{ sucursal.numero }} - {{ sucursal.provincia }} - {{ sucursal.localidad }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <h2>Paquetes Disponibles para Transporte</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Número de Envío</th>
+                    <th>Destinatario</th>
+                    <th>Dirección</th>
+                    <th>Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paquete in paquetes %}
+                <tr>
+                    <td>{{ paquete.numeroenvio }}</td>
+                    <td>{{ paquete.nomdestinatario }}</td>
+                    <td>{{ paquete.dirdestinatario }}</td>
+                    <td>
+                        <input type="checkbox" name="paquetes" value="{{ paquete.id }}">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <button type="submit">Registrar Transporte</button>
+    </form>
+    <a href="{{ url_for('opciones') }}">Volver</a>
+</body>
+</html>

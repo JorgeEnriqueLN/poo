@@ -1,0 +1,32 @@
+import numpy as np
+
+# Se define la clase Producto
+class Producto:
+    def __init__(self, nombre, precio, stock):
+        self.__nombre = nombre
+        self.__precio = precio
+        self.__stock = stock
+
+    def __repr__(self):
+        return f"Producto({self.nombre}, {self.precio}, {self.stock})"
+
+# Se crea objetos Producto
+productos = [
+    Producto("Camisa", 25.0, 10),
+    Producto("Pantalón", 35.0, 5),
+    Producto("Zapatos", 50.0, 0),
+    Producto("Bufanda", 15.0, 8)
+]
+
+# Se convirerte la lista de objetos Producto a un array de NumPy
+arr_productos = np.array(productos)
+
+# Se define la condición para extraer productos en stock y con precio menor a 30
+condicion = (arr_productos.stock > 0) & (arr_productos.precio < 30)
+
+# Se aplica numpy.extract para obtener los productos que cumplen la condición
+productos_filtrados = np.extract(condicion, arr_productos)
+
+# Se muestra los productos filtrados
+for producto in productos_filtrados:
+    print(producto)

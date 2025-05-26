@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Paquete</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='registrar_paquete.css') }}">
+
+</head>
+<body>
+    <h1>Registrar Paquete</h1>
+ 
+
+    <form method="POST">
+        <label for="peso">Peso:</label>
+        <input type="text" id="peso" name="peso" required>
+
+        <label for="nomdestinatario">Nombre del Destinatario:</label>
+        <input type="text" id="nomdestinatario" name="nomdestinatario" required>
+
+        <label for="dirdestinatario">Dirección del Destinatario:</label>
+        <input type="text" id="dirdestinatario" name="dirdestinatario" required>
+
+        <button type="submit">Registrar Paquete</button>
+        <a href="{{ url_for('opciones') }}" class="back-link">Volver </a>
+    </form>
+</body>
+</html>

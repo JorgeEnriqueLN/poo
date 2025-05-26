@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Repartidor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='acceso_repartidor.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Acceso Repartidor</h1>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" class="form-container">
+            <label for="numero_repartidor">Número Repartidor:</label>
+            <input type="text" name="numero_repartidor" id="numero_repartidor" required>
+            <label for="dni">DNI:</label>
+            <input type="text" name="dni" id="dni" required>
+            <button type="submit" class="submit-button">Ingresar</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="back-link">Volver al Inicio</a>
+    </div>
+</body>
+</html>

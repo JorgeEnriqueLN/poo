@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Gestión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='opciones.css') }}">
+
+</head>
+<body>
+    <h1>Opciones de Gestión</h1>
+    <p>ID de la Sucursal: {{ sucursal_id }}</p>
+    <p>Provincia: {{ sucursal.provincia }} - Localidad: {{ sucursal.localidad }}</p>
+    <div >
+           
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="messages">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+    </div>
+    <div class="button-container">
+        <form method="POST" action="{{ url_for('opciones') }}">
+            <input type="hidden" name="idsucursal" value="{{ sucursal_id }}">
+            <button type="submit" name="opcion" value="registrar_paquete">Registrar Paquete</button>
+            <button type="submit" name="opcion" value="asignar_paquetes">Asignar Paquetes</button>
+            <button type="submit" name="opcion" value="llegada_transporte">Registrar Llegada de Transporte</button>
+            <button type="submit" name="opcion" value="salida_transporte">Registrar Salida de Transporte</button>
+        </form>
+    </div>
+
+    <br>
+    <a href="{{ url_for('index') }}">Volver al Inicio</a>
+</body>
+</html>

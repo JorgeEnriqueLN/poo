@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Llegada de Transporte</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='llegada_transporte.css') }}">
+
+</head>
+<body>
+  <h1>Transportes Pendientes de Llegada</h1>
+  
+  <p>ID de la Sucursal: {{ idsucursal }}</p>
+  
+  <h2>Transportes Pendientes</h2>
+  <ul>
+    {% for transporte in transportes %}
+    <li>ID: {{ transporte.id }}, Número de Transporte: {{ transporte.numerotransporte }}, Fecha y Hora de Salida: {{ transporte.fechahorasalida }}</li>
+    {% endfor %}
+  </ul>
+
+  <form method="post">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Número de Transporte</th>
+          <th>Fecha y Hora de Salida</th>
+          <th>Seleccionar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for transporte in transportes %}
+        <tr>
+          <td>{{ transporte.id }}</td>
+          <td>{{ transporte.numerotransporte }}</td>
+          <td>{{ transporte.fechahorasalida }}</td>
+          <td class="checkbox-container">
+              <input type="hidden" name="transporte_id" value="{{ transporte.id }}">
+              <input type="checkbox" name="seleccionar_transporte" value="{{ transporte.id }}">
+          </td>
+      </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <button type="submit">Registrar Llegada</button>
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul>
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
+  <a href="{{ url_for('opciones') }}">Volver</a>
+</body>
+</html>

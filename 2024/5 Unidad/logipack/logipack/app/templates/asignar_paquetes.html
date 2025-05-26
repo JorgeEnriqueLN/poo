@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignar Paquetes a Repartidor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='asignar_paquetes.css') }}">
+
+</head>
+<body>
+    <h1>Asignar Paquetes a Repartidor</h1>
+    <form method="post" action="/asignar_paquetes">
+        <label for="idrepartidor">Seleccionar Repartidor:</label>
+        <select name="idrepartidor" id="idrepartidor">
+            {% for repartidor in repartidores %}
+            <option value="{{ repartidor.id }}"> {{ repartidor.nombre }} ({{ repartidor.dni }})</option>
+            {% endfor %}
+        </select>
+        <h3>Paquetes Disponibles:</h3>
+        <ul>
+            {% for paquete in paquetes %}
+            <li>
+                <input type="checkbox" name="paquetes" value="{{ paquete.id }}">
+                {{ paquete.numeroenvio }} - {{ paquete.dirdestinatario }}
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Asignar Paquetes</button>
+    </form>
+    <a href="{{ url_for('opciones') }}">Volver</a>
+</body>
+</html>

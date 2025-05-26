@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Entrega</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='registrar_entrega.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Opciones de Entrega</h1>
+       
+        {% if paquete %}
+        <div class="paquete-info">
+            <h2>Numero Paquete Asignado: {{ paquete.numeroenvio }}</h2>
+            <h2>Peso: {{ paquete.peso }}</h2>
+            <h2>Destino: {{ paquete.dirdestinatario }}</h2>
+        </div>
+
+        <form method="post" action="{{ url_for('registrar_entrega', idrepartidor=repartidor.id, paquete_id=paquete.id) }}" class="form-container">
+            <label for="observaciones">Observaciones:</label>
+            <textarea name="observaciones" id="observaciones"></textarea>
+            <div class="button-container">
+                <button type="submit" name="accion" value="entregado" class="submit-button">Entregado</button>
+                <button type="submit" name="accion" value="no_entregado" class="submit-button">No Entregado</button>
+            </div>
+        </form>
+        {% else %}
+        <p>No hay paquetes asignados en este momento.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="back-link">Volver al Inicio</a>
+    </div>
+</body>
+</html>
