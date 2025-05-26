@@ -1,0 +1,9 @@
+origen;destino;distancia_km;patente
+Cordoba;Rosario;400;AB123DE
+Rosario;Buenos Aires;300;AG400IC
+Mendoza;San Juan;180;AB789ZY
+Mendoza;Bariloche;1200;AD234RO
+Rosario;Buenos Aires;300;AB123DE
+San Juan;San Luis;330;AB789ZY
+Buenos Aires;San Juan;1130;AB123DE
+Bariloche;Mendoza;1200;AD234RO
